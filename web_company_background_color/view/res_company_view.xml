@@ -7,9 +7,17 @@
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-                <field name="report_footer" position="after">
-                    <field name="background_color" widget="color"/>
-                </field>
+                <notebook position="inside">
+                    <page string="Navbar" name="navbar" groups="base.group_system">
+                        <group string="Navbar Colors" name="navbar_colors">
+                            <field name="navbar_chameleon_mode" />
+                            <field name="navbar_color_background" widget="color" />
+                            <field name="navbar_color_text" widget="color" />
+                            <field name="navbar_color_text_hover" widget="color" />
+                            <field name="navbar_color_text_active" widget="color" />
+                        </group>
+                    </page>
+                </notebook>
             </field>
         </record>
 

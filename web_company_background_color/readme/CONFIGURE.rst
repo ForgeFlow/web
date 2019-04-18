@@ -1,2 +1,2 @@
 Go to *Settings / Users & Companies* and select the company.
-In the field 'Background color' select the background of your choice.
+Set a company logo or in the section 'Navbar' select the background of your choice.
