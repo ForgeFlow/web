@@ -14,6 +14,7 @@ web_action_conditionable
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fweb-lightgray.png?logo=github
+<<<<<<< HEAD
     :target: https://github.com/OCA/web/tree/12.0/web_action_conditionable
     :alt: OCA/web
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
@@ -21,11 +22,34 @@ web_action_conditionable
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
     :target: https://runbot.odoo-community.org/runbot/162/12.0
+=======
+    :target: https://github.com/OCA/web/tree/11.0/web_action_conditionable
+    :alt: OCA/web
+.. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
+    :target: https://translation.odoo-community.org/projects/web-11-0/web-11-0-web_action_conditionable
+    :alt: Translate me on Weblate
+.. |badge5| image:: https://img.shields.io/badge/runbot-Try%20me-875A7B.png
+    :target: https://runbot.odoo-community.org/runbot/162/11.0
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
     :alt: Try me on Runbot
 
 |badge1| |badge2| |badge3| |badge4| |badge5| 
 
+<<<<<<< HEAD
 This module was written to extend the functionality of actions in tree views.
+=======
+This module was written to extend the functionality of actions in
+tree view (One2Many fields).
+
+**Table of contents**
+
+.. contents::
+   :local:
+
+Usage
+=====
+
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
 Odoo by default support:
 
 ::
@@ -35,6 +59,7 @@ Odoo by default support:
 with this module you can:
 
 ::
+<<<<<<< HEAD
 
    <tree delete="state=='draft'">
 
@@ -49,6 +74,12 @@ Usage
 =====
 
 This module has no direct interface, it only adds functionality for custom views.
+=======
+
+   <tree delete="state=='draft'" create="state!='sent'">
+
+It works in any tree view, so you can use it in One2many.
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
 
 Bug Tracker
 ===========
@@ -56,7 +87,11 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/web/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us smashing it by providing a detailed and welcomed
+<<<<<<< HEAD
 `feedback <https://github.com/OCA/web/issues/new?body=module:%20web_action_conditionable%0Aversion:%2012.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+=======
+`feedback <https://github.com/OCA/web/issues/new?body=module:%20web_action_conditionable%0Aversion:%2011.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -73,6 +108,7 @@ Contributors
 
 * Cristian Salamea <cristian.salamea@gmail.com>
 * André Paramés <github@andreparames.com> (https://www.acsone.eu/)
+* Alexandre Díaz <alexandre.diaz@tecnativa.com>
 
 Maintainers
 ~~~~~~~~~~~
@@ -87,6 +123,10 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
+<<<<<<< HEAD
 This module is part of the `OCA/web <https://github.com/OCA/web/tree/12.0/web_action_conditionable>`_ project on GitHub.
+=======
+This module is part of the `OCA/web <https://github.com/OCA/web/tree/11.0/web_action_conditionable>`_ project on GitHub.
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

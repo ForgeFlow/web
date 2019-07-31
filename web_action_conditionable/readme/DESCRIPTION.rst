@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This module was written to extend the functionality of actions in tree views.
 Odoo by default support:
 
@@ -12,3 +13,7 @@ with this module you can:
    <tree delete="state=='draft'">
 
 It works in any tree view, so you can use it in One2many.
+=======
+This module was written to extend the functionality of actions in
+tree view (One2Many fields).
+>>>>>>> 2eb1f1bc... [FIX] web_action_conditionable: Adapt to new api
