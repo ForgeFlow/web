@@ -5,32 +5,28 @@
     /* The following !important sentences are needed to override inline styles hardcoded by the bokeh library.
     This way the graphs are always displayed inside their defined container in the Qweb views.
     */
-    /*  Commenting fix temporarily, until we found a fix for the hover issue.
     .bk-layout-stretch_both {
-        height: inherit !important;
         width: inherit !important;
     }
 
     .bk-plot-wrapper {
-        height: inherit !important;
         width: inherit !important;
     }
 
     // forces the toolbar to be always at the right of the plot
     .bk-toolbar-wrapper {
-        height: inherit !important;
         float: right !important;
         left: 0 !important;
     }
 
     .bk-canvas-wrapper {
-        height: inherit !important;
         width: inherit !important;
     }
 
     .bk-canvas{
-        height: inherit !important;
         width: inherit !important;
     }
-    */
+    .bk-layout-stretch_both {
+        position: relative !important;
+    }
 }
