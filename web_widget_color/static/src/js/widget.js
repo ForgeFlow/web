@@ -37,8 +37,7 @@ odoo.define("web.web_widget_color", function(require) {
             if (canUnselect) {
                 return this._super.apply(this, arguments);
             }
-                return $.Deferred().resolve();
-
+            return $.Deferred().resolve();
         },
     });
 
