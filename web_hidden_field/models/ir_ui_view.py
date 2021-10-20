@@ -3,13 +3,13 @@
 import json
 
 from odoo import api, models
-from odoo.osv import orm
+
+from odoo.addons.base.models.ir_ui_view import transfer_modifiers_to_node
 
 
 class IrUiView(models.Model):
     _inherit = "ir.ui.view"
 
-    @api.multi
     def _check_hidden_field(self, model_name, field_name):
         model = self.env["ir.model"].search([("model", "=", model_name)])
         field = self.env["ir.model.fields"].search(
@@ -33,13 +33,11 @@ class IrUiView(models.Model):
                     return True
         return False
 
-    @api.multi
-    def _check_safe_mode(self, node):
+    def _check_safe_mode(self, node, model):
         modifiers = json.loads(node.get("modifiers"))
         if "required" in modifiers and modifiers["required"]:
             return True
-        check_xml = "record." + node.get("name") + ".raw_value"
-        if self.search([("arch_db", "ilike", check_xml)]):
+        if self.search([("arch_db", "ilike", node.get("name")), ("model", "=", model)]):
             return True
         return False
 
@@ -51,9 +49,9 @@ class IrUiView(models.Model):
         if node.tag == "field":
             if self._check_hidden_field(model, node.get("name")):
                 modifiers = json.loads(node.get("modifiers"))
-                if self._check_safe_mode(node):
+                if self._check_safe_mode(node, model):
                     modifiers["invisible"] = True
-                    orm.transfer_modifiers_to_node(modifiers, node)
+                    transfer_modifiers_to_node(modifiers, node)
                 else:
                     node.getparent().remove(node)
                     fields.pop(node.get("name"), None)

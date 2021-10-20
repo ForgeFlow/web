@@ -3,12 +3,12 @@
 
 {
     "name": "Web Hidden Fields",
-    "version": "10.0.0.1.0",
+    "version": "13.0.1.0.0",
     "category": "Web",
     "author": "Acysos S.L., Odoo Community Association (OCA)",
     "website": "https://github.com/OCA/web",
     "license": "AGPL-3",
-    "depends": ["base",],
+    "depends": ["base"],
     "data": ["security/ir.model.access.csv", "views/hidden_template_view.xml"],
     "installable": True,
     "auto_install": False,
