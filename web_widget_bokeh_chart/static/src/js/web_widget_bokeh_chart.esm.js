@@ -1,8 +1,8 @@
 /** @odoo-module **/
 
 import {CharField} from "@web/views/fields/char/char_field";
-import {registry} from "@web/core/registry";
 import {loadBundle} from "@web/core/assets";
+import {registry} from "@web/core/registry";
 const {onWillStart, markup} = owl;
 class BokehChartWidget extends CharField {
     setup() {
@@ -21,9 +21,13 @@ class BokehChartWidget extends CharField {
         );
     }
     get json_value() {
-        var value = JSON.parse(this.props.value);
-        value.div = markup(value.div.trim());
-        return value;
+        try {
+            var value = JSON.parse(this.props.value);
+            value.div = markup(value.div.trim());
+            return value;
+        } catch (error) {
+            return {};
+        }
     }
 }
 BokehChartWidget.template = "web_widget_bokeh_chart.BokehChartField";
