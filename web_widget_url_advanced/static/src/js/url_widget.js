@@ -42,7 +42,7 @@ odoo.define("web_widget_url_advanced", function (require) {
             var prefix = this.attrs.prefix_name || this.attrs.options.prefix_name;
             if (prefix) {
                 this.$el.html(
-                    $(this.$el.html()).attr("href", prefix + ":" + this.value)
+                    $(this.$el.html()).attr("href", prefix + this.value)
                 );
             }
         },
