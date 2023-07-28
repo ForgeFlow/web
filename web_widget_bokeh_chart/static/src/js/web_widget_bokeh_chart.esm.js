@@ -7,6 +7,13 @@ const {onWillStart, markup} = owl;
 class BokehChartWidget extends CharField {
     setup() {
         super.setup();
+        try {
+            this.value = JSON.parse(this.props.value);
+            this.value.div = markup(this.value.div.trim());
+        } catch (error) {
+            this.value = {div: "", script: ""};
+        }
+
         onWillStart(() =>
             loadBundle({
                 jsLibs: [
@@ -19,15 +26,6 @@ class BokehChartWidget extends CharField {
                 ],
             })
         );
-    }
-    get json_value() {
-        try {
-            var value = JSON.parse(this.props.value);
-            value.div = markup(value.div.trim());
-            return value;
-        } catch (error) {
-            return {};
-        }
     }
 }
 BokehChartWidget.template = "web_widget_bokeh_chart.BokehChartField";
