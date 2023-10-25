@@ -18,6 +18,7 @@
     "assets": {
         "web.assets_backend": [
             "web_widget_mpld3_chart/static/src/js/web_widget_mpld3_chart.esm.js",
+            "web_widget_mpld3_chart/static/src/lib/xml/mpld3.xml",
         ],
     },
 }
