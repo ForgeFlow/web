@@ -10,17 +10,14 @@ const Mpld3ChartWidget = basicFields.FieldChar.extend({
     ],
     _renderReadonly: function () {
         try {
-            const val = JSON.parse(this.value);
-            const new_div = document.createElement("div");
-            new_div.setAttribute("id", val.div);
-            this.$el.html(new_div);
-            this.$el.ready(function () {
-                const script = document.createElement("script");
-                script.setAttribute("type", "text/javascript");
-                if ("textContent" in script) script.textContent = val.script;
-                else script.text = val.script;
-                $("head").append(script);
-            });
+            var val = this.value;
+            var self = this.$el
+            if (val) {
+            // I hate JS...
+                this.$el.ready(setTimeout(function () {
+                    self.html(val);
+                }, 500));
+            }
         } catch (error) {
             return this._super(...arguments);
         }
