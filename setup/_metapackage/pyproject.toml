@@ -4,7 +4,7 @@ version = "17.0.20231124.0"
 dependencies = [
     "odoo-addon-web_environment_ribbon>=17.0dev,<17.1dev",
     "odoo-addon-web_refresher>=17.0dev,<17.1dev",
-]
+version = "17.0.20231115.0"
 classifiers=[
     "Programming Language :: Python",
     "Framework :: Odoo",
