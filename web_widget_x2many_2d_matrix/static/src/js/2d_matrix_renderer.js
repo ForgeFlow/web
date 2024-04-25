@@ -115,7 +115,8 @@ odoo.define("web_widget_x2many_2d_matrix.X2Many2dMatrixRenderer", function (requ
             var $tr = $("<tr>").append("<th/>");
             $tr = $tr.append(_.map(this.columns, this._renderHeaderCell.bind(this)));
             if (this.matrix_data.show_row_totals) {
-                $tr.append($("<th/>", {class: "total"}));
+                $tr.append("<b>TOTALS</b>");
+                $tr.append($("TOTALS <th/>", {class: "total"}));
             }
             return $("<thead>").append($tr);
         },
@@ -320,7 +321,11 @@ odoo.define("web_widget_x2many_2d_matrix.X2Many2dMatrixRenderer", function (requ
         _renderFooter: function () {
             var $cells = this._renderAggregateColCells();
             if ($cells) {
-                var $tr = $("<tr>").append("<td/>").append($cells);
+                var $tr = $("<tr>");
+                $tr.append(
+                    "<b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOTALS</>"
+                );
+                $tr.append($cells);
                 var $total_cell = this._renderTotalCell();
                 if ($total_cell) {
                     $tr.append($total_cell);
