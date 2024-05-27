@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates xml:space="preserve">
+    <div t-ref="widget" t-name="web_widget_datatables.DatatablesField">
+    </div>
+</templates>
