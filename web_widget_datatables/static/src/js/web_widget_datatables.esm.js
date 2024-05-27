@@ -33,12 +33,15 @@ export default class DatatablesWidget extends CharField {
     };
 
     updateDatatables(value) {
-
+        // Clear previous table if it exists
+        if (this.widget.el) {
+            this.widget.el.innerHTML = '';
+        }
         var table = document.createElement('table');
         table.id = 'example';
         table.className = 'display';
         table.width = '100%';
-
+        this.widget.el.appendChild(table); // Append table to the widget element
         const dataSet = [
             ['Tiger Nixon', 'System Architect', 'Edinburgh', '5421', '2011/04/25', '$320,800'],
             ['Garrett Winters', 'Accountant', 'Tokyo', '8422', '2011/07/25', '$170,750'],
@@ -47,7 +50,7 @@ export default class DatatablesWidget extends CharField {
             ['Airi Satou', 'Accountant', 'Tokyo', '5407', '2008/11/28', '$162,700'],
         ];
 
-        new DataTable('#example', {
+        $(table).DataTable({
             columns: [
                 { title: 'Name' },
                 { title: 'Position' },
