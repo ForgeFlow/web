@@ -43,26 +43,34 @@ export default class DatatablesWidget extends CharField {
             table.id = "example";
             table.className = "display";
             table.width = "100%";
+            table.style.display = "block";
+            table.style.overflow = "auto";
             this.widget.el.appendChild(table); // Append table to the widget element
 
             // Fetch query results JSON from the record
-            const queryResultsJson = await this.orm.call(
-                "sql.export",
-                "get_sql_query_data",
-                [this.props.record.resId]
-            );
+            try {
+                const queryResultsJson = await this.orm.call(
+                    "sql.export",
+                    "get_sql_query_data",
+                    [this.props.record.resId]
+                );
 
-            console.log("RPC Response:", queryResultsJson); // Log response to console
+                console.log("RPC Response:", queryResultsJson); // Log response to console
 
-            // Parse query results JSON
-            const queryResults = JSON.parse(queryResultsJson);
-            const columns = queryResults.header.map((title) => ({title}));
-            const data = Object.values(queryResults.rows);
+                // Parse query results JSON
+                const queryResults = JSON.parse(queryResultsJson);
+                const columns = queryResults.header.map((title) => ({title}));
+                const data = Object.values(queryResults.rows);
 
-            $(table).DataTable({
-                columns: columns,
-                data: data,
-            });
+                $(table).DataTable({
+                    columns: columns,
+                    data: data,
+                });
+            } catch (error) {
+                console.log("RPC Call Error");
+                this.widget.el.innerHTML = "<div></div>";
+            }
+
         }
     }
 }
