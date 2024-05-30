@@ -49,12 +49,16 @@ export default class DatatablesWidget extends CharField {
 
             // Fetch query results JSON from the record
             try {
+                console.log("Try RPC.");
                 const queryResultsJson = await this.orm.call(
-                    "sql.export",
+                    "sql.file.wizard",
                     "get_sql_query_data",
                     [this.props.record.resId]
                 );
-
+                if (queryResultsJson === false) {
+                    console.log("JSON is not settled.");
+                    this.widget.el.innerHTML = "<div></div>";
+                }
                 console.log("RPC Response:", queryResultsJson); // Log response to console
 
                 // Parse query results JSON
@@ -70,7 +74,6 @@ export default class DatatablesWidget extends CharField {
                 console.log("RPC Call Error");
                 this.widget.el.innerHTML = "<div></div>";
             }
-
         }
     }
 }

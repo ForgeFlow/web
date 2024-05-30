@@ -1,6 +1,6 @@
-======================
-Web Widget Bokeh Chart
-======================
+=====================
+Web Widget Datatables
+=====================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -10,17 +10,17 @@ Web Widget Bokeh Chart
    !! source digest: sha256:3ec86c20df03bbfbb52f5eaa52fb1be16d4fe3ec0f1756f745ad65eb7cc56b66
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-.. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
+.. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Production/Stable
+    :alt: Beta
 .. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fweb-lightgray.png?logo=github
-    :target: https://github.com/OCA/web/tree/17.0/web_widget_bokeh_chart
+    :target: https://github.com/OCA/web/tree/17.0/web_widget_datatables
     :alt: OCA/web
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/web-17-0/web-17-0-web_widget_bokeh_chart
+    :target: https://translation.odoo-community.org/projects/web-17-0/web-17-0-web_widget_datatables
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
     :target: https://runboat.odoo-community.org/builds?repo=OCA/web&target_branch=17.0
@@ -28,24 +28,7 @@ Web Widget Bokeh Chart
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module add the possibility to insert Bokeh charts into Odoo
-standard views.
 
-|Bokeh Chart inserted into an Odoo view|
-
-`Bokeh <https://bokeh.pydata.org>`__ is a Python interactive
-visualization library that targets modern web browsers for presentation.
-Its goal is to provide elegant, concise construction of basic
-exploratory and advanced custom graphics in the style of D3.js, but also
-deliver this capability with high-performance interactivity over very
-large or streaming datasets. Bokeh can help anyone who would like to
-quickly and easily create interactive plots, dashboards, and data
-applications.
-
-If you want to see some samples of bokeh's capabilities follow this
-`link <https://bokeh.pydata.org/en/latest/docs/gallery.html>`__.
-
-.. |Bokeh Chart inserted into an Odoo view| image:: https://raw.githubusercontent.com/OCA/web/17.0/web_widget_bokeh_chart/static/description/example.png
 
 **Table of contents**
 
@@ -150,18 +133,13 @@ Using a Json field
       <div>
           <field name="bokeh_chart" widget="bokeh_chart_json
 
-Known issues / Roadmap
-======================
-
-
-
 Bug Tracker
 ===========
 
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/web/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/web/issues/new?body=module:%20web_widget_bokeh_chart%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/web/issues/new?body=module:%20web_widget_datatables%0Aversion:%2017.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -172,27 +150,16 @@ Authors
 -------
 
 * ForgeFlow
-* Creu Blanca
+* 
 
 Contributors
 ------------
 
 -  Jordi Ballester Alomar <jordi.ballester@forgeflow.com>
--  Lois Rilo Antelo <lois.rilo@forgeflow.com>
--  Artem Kostyuk <a.kostyuk@mobilunity.com>
--  Christopher Ormaza <chris.ormaza@forgeflow.com>
--  Enric Tobella <etobella@creublanca.es>
--  Oriol Miranda Garrido <oriol.miranda@forgeflow.com>
--  Bernat Puig Font <bernat.puig@forgeflow.com>
-
-Other credits
--------------
-
--  This module uses the library
-   `Bokeh <https://github.com/bokeh/bokeh>`__ which is under the
-   open-source BSD 3-clause "New" or "Revised" License. Copyright (c)
-   2012, Anaconda, Inc.
--  Odoo Community Association (OCA)
+-  Maria Buscallà <maria.buscalla@forgeflow.com>
+-  Arnau Cruz <arnau.cruz@forgeflow.com>
+-  Laura Cazorla <laura.cazorla@forgeflow.com>
+-  David Jiménez <david.jimenez@forgeflow.com>
 
 Maintainers
 -----------
@@ -207,17 +174,6 @@ OCA, or the Odoo Community Association, is a nonprofit organization whose
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.
 
-.. |maintainer-LoisRForgeFlow| image:: https://github.com/LoisRForgeFlow.png?size=40px
-    :target: https://github.com/LoisRForgeFlow
-    :alt: LoisRForgeFlow
-.. |maintainer-ChrisOForgeFlow| image:: https://github.com/ChrisOForgeFlow.png?size=40px
-    :target: https://github.com/ChrisOForgeFlow
-    :alt: ChrisOForgeFlow
-
-Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
-
-|maintainer-LoisRForgeFlow| |maintainer-ChrisOForgeFlow| 
-
-This module is part of the `OCA/web <https://github.com/OCA/web/tree/17.0/web_widget_bokeh_chart>`_ project on GitHub.
+This module is part of the `OCA/web <https://github.com/OCA/web/tree/17.0/web_widget_datatables>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.
