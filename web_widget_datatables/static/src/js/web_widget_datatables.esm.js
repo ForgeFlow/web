@@ -42,9 +42,6 @@ export default class DatatablesWidget extends CharField {
             var table = document.createElement("table");
             table.id = "example";
             table.className = "display";
-            table.width = "100%";
-            table.style.display = "block";
-            table.style.overflow = "auto";
             this.widget.el.appendChild(table); // Append table to the widget element
 
             // Fetch query results JSON from the record
