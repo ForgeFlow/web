@@ -3,10 +3,10 @@
     License LGPL-3.0 or later (https://www.gnu.org/licenses/lgpl).
 */
 
-import {FormCompiler} from "@web/views/form/form_compiler";
-import {patch} from "@web/core/utils/patch";
 import {append, setAttributes} from "@web/core/utils/xml";
+import {FormCompiler} from "@web/views/form/form_compiler";
 import {SIZES} from "@web/core/ui/ui_service";
+import {patch} from "@web/core/utils/patch";
 
 patch(FormCompiler.prototype, {
     /**
@@ -43,10 +43,9 @@ patch(FormCompiler.prototype, {
         } else if (odoo.web_chatter_position === "sided") {
             setAttributes(chatterContainerXml, {
                 isInFormSheetBg: `__comp__.uiService.size < ${SIZES.XXL}`,
-                isChatterAside: `__comp__.uiService.size >= ${SIZES.XXL}`,
             });
             setAttributes(chatterContainerHookXml, {
-                class: "o-mail-ChatterContainer o-mail-Form-chatter o-aside w-print-100",
+                class: "o-mail-ChatterContainer o-mail-Form-chatter w-print-100",
             });
             // For "bottom", we keep the chatter in the form sheet
             // (the one used for the attachment viewer case)
