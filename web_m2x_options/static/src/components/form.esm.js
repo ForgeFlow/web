@@ -1,8 +1,8 @@
+import {Many2XAutocomplete} from "@web/views/fields/relational_utils";
 import {
-    AvatarMany2XAutocomplete,
-    Many2XAutocomplete,
-} from "@web/views/fields/relational_utils";
-import {Many2OneField, many2OneField} from "@web/views/fields/many2one/many2one_field";
+    Many2OneField,
+    buildM2OFieldDescription,
+} from "@web/views/fields/many2one/many2one_field";
 import {Many2OneReferenceField} from "@web/views/fields/many2one_reference/many2one_reference_field";
 import {FormController} from "@web/views/form/form_controller";
 import {evaluateBooleanExpr} from "@web/core/py_js/py";
@@ -13,10 +13,6 @@ import {patch} from "@web/core/utils/patch";
 import {registry} from "@web/core/registry";
 import {session} from "@web/session";
 
-AvatarMany2XAutocomplete.props = {
-    ...AvatarMany2XAutocomplete.props,
-    ...fieldColorProps,
-};
 Many2XAutocomplete.props = {
     ...Many2XAutocomplete.props,
     ...fieldColorProps,
@@ -27,7 +23,7 @@ function evaluateSystemParameterDefaultTrue(option) {
     return isOptionSet ? evaluateBooleanExpr(isOptionSet) : true;
 }
 
-patch(many2OneField, {
+patch(buildM2OFieldDescription, {
     m2o_options_props_create(props, attrs, options) {
         const canQuickCreate = evaluateSystemParameterDefaultTrue("create");
         if (options.no_quick_create) {
@@ -67,6 +63,7 @@ patch(many2OneField, {
     },
 
     m2o_options_props_limit(props, attrs, options) {
+        debugger;
         const ir_options = session.web_m2x_options;
         if (Number(options.limit)) {
             props.searchLimit = Number(options.limit);
@@ -234,7 +231,9 @@ patch(Many2XAutocomplete.prototype, {
         this.field_color = this.props.fieldColor;
         this.colors = this.props.fieldColorOptions;
         if (this.colors && this.field_color) {
-            var value_ids = options.map((result) => result.value);
+            var value_ids = options
+                .map((opt) => opt?.data?.record?.id)
+                .filter((id) => typeof id === "number" || typeof id === "string");
             const objects = await this.orm.call(
                 this.props.resModel,
                 "search_read",

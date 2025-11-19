@@ -8,12 +8,12 @@
         t-inherit="web.AutoComplete"
         t-inherit-mode="extension"
     >
-        <xpath expr="//t[@t-foreach='source.options']/li/a" position="attributes">
-            <attribute name="t-attf-style">{{ option.style }}</attribute>
+        <xpath expr="//a[hasclass('ui-menu-item-wrapper')]" position="attributes">
+            <attribute name="t-attf-style">{{ props.style }}</attribute>
         </xpath>
     </t>
 
-     <t
+    <t
         t-name="web_m2x_options.Many2ManyTagsField"
         t-inherit="web.Many2ManyTagsField"
         t-inherit-mode="extension"
