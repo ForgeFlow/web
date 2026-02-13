@@ -8,7 +8,7 @@
 {
     "name": "Web Responsive",
     "summary": "Responsive web client, community-supported",
-    "version": "16.0.1.4.0",
+    "version": "16.0.1.3.1",
     "category": "Website",
     "website": "https://github.com/OCA/web",
     "author": "LasLabs, Tecnativa, ITerra, Onestein, "
@@ -39,7 +39,6 @@
             "/web_responsive/static/src/components/hotkey/hotkey.xml",
             "/web_responsive/static/src/components/chatter_topbar/chatter_topbar.esm.js",
             "/web_responsive/static/src/components/chatter_topbar/chatter_topbar.xml",
-            "/web_responsive/static/src/components/chatter_topbar/chatter_topbar.scss",
             "/web_responsive/static/src/components/attachment_viewer/attachment_viewer.scss",
             "/web_responsive/static/src/components/attachment_viewer/attachment_viewer.esm.js",
             "/web_responsive/static/src/components/attachment_viewer/attachment_viewer.xml",

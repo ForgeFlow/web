@@ -3,48 +3,35 @@
 import {ActionDialog} from "@web/webclient/actions/action_dialog";
 import {patch} from "@web/core/utils/patch";
 import rpc from "web.rpc";
-import {Component, onWillRender} from "@odoo/owl";
+import {Component, onMounted} from "@odoo/owl";
 import {Dialog} from "@web/core/dialog/dialog";
 import {SelectCreateDialog} from "@web/views/view_dialogs/select_create_dialog";
 
 export class ExpandButton extends Component {
     setup() {
-        this.lastSize = this.props.getsize();
-        this.currentSize = this.props.getsize();
+        this.last_size = this.props.getsize();
         this.config = rpc.query({
             model: "ir.config_parameter",
             method: "get_web_dialog_size_config",
         });
 
-        onWillRender(() => {
-            // If the form lost its current state, we need to set it again
-            if (this.props.getsize() !== this.currentSize) {
-                this.props.setsize(this.currentSize);
-            }
-            // Auto maximize once if config says so
-            if (this.props.getsize() !== "dialog_full_screen" && !this.sizeRestored) {
-                this.config.then((r) => {
-                    if (r.default_maximize) {
-                        this.toggleSize();
-                    }
-                });
-            }
+        onMounted(() => {
+            var self = this;
+            this.config.then(function (r) {
+                if (r.default_maximize && stop) {
+                    self.dialog_button_extend();
+                }
+            });
         });
     }
 
-    toggleSize() {
-        if (this.currentSize === "dialog_full_screen") {
-            // Restore to previous remembered size
-            this.currentSize = "lg";
-            this.props.setsize(this.currentSize);
-            this.sizeRestored = true;
-        } else {
-            // Remember current size before maximizing
-            this.lastSize = this.currentSize;
-            this.currentSize = "dialog_full_screen";
-            this.props.setsize("dialog_full_screen");
-            this.sizeRestored = false;
-        }
+    dialog_button_extend() {
+        this.props.setsize("dialog_full_screen");
+        this.render();
+    }
+
+    dialog_button_restore() {
+        this.props.setsize(this.last_size);
         this.render();
     }
 }
@@ -56,15 +43,9 @@ patch(Dialog.prototype, "web_dialog_size.Dialog", {
         this._super(...arguments);
         this.setSize = this.setSize.bind(this);
         this.getSize = this.getSize.bind(this);
-        onWillRender(() => {
-            if (this._forcedSize && this.props.size !== this._forcedSize) {
-                this.props.size = this._forcedSize;
-            }
-        });
     },
 
     setSize(size) {
-        this._forcedSize = size;
         this.props.size = size;
         this.render();
     },

@@ -12,6 +12,14 @@ export function useRefreshAnimation(timeout) {
     const refreshClass = "o_content__refresh";
     let timeoutId = null;
 
+    /**
+     * @returns {DOMTokenList|null}
+     */
+    function contentClassList() {
+        const content = document.querySelector(".o_content");
+        return content ? content.classList : null;
+    }
+
     function clearAnimationTimeout() {
         if (timeoutId) {
             clearTimeout(timeoutId);
@@ -21,20 +29,11 @@ export function useRefreshAnimation(timeout) {
 
     function animate() {
         clearAnimationTimeout();
-        const content = document.querySelector(".o_content");
-        if (content) {
-            content.classList.add(refreshClass);
-            timeoutId = setTimeout(() => {
-                // Check if element still exists in DOM after timeout
-                if (
-                    document.contains(content) &&
-                    content.classList.contains(refreshClass)
-                ) {
-                    content.classList.remove(refreshClass);
-                }
-                clearAnimationTimeout();
-            }, timeout);
-        }
+        contentClassList().add(refreshClass);
+        timeoutId = setTimeout(() => {
+            contentClassList().remove(refreshClass);
+            clearAnimationTimeout();
+        }, timeout);
     }
 
     return animate;

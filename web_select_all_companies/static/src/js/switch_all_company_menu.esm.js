@@ -31,11 +31,7 @@ patch(SwitchCompanyMenu.prototype, "SwitchAllCompanyMenu", {
             }, this.constructor.toggleDelay);
         } else {
             // Select all
-            this.state.companiesToToggle = [
-                this.allCompanyIds.filter(
-                    (x) => !this.companyService.allowedCompanyIds.includes(x)
-                ),
-            ];
+            this.state.companiesToToggle = [this.allCompanyIds];
             this.isAllCompaniesSelected = true;
             browser.clearTimeout(this.toggleTimer);
             this.toggleTimer = browser.setTimeout(() => {

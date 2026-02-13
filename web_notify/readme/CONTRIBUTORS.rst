@@ -6,5 +6,3 @@
 * `Tecnativa <https://www.tecnativa.com>`_:
 
   * David Vidal
-
-* Cetmix OÜ <https://cetmix.com/>

@@ -1,3 +1,0 @@
-- [Binhex](https://www.binhex.cloud):
-- Mario Montes\<<m.montes@binhex.cloud>\>
-- Abraham J. Febres \<<afebres@binhex.cloud>\>

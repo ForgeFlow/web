@@ -6,7 +6,6 @@
         <field name="model">web.editor.class</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="sequence" widget="handle" />
                 <field name="name" />
                 <field name="class_name" />
             </tree>
@@ -26,7 +25,6 @@
                         </h1>
                     </div>
                     <group>
-                        <field name="sequence" />
                         <field name="class_name" placeholder="Some CSS class" />
                     </group>
                 </sheet>

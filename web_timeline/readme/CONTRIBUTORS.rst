@@ -19,7 +19,3 @@
 * `XCG Consulting <https://xcg-consulting.fr>`_:
 
   * Houzéfa Abbasbhay
-
-* `Komit <https://komit-consulting.com>`_:
-
-  * Cuong Nguyen Mtm <cuong.nmtm@komit-consulting.com>
