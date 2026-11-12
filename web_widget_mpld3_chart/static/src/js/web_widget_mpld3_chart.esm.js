@@ -1,16 +1,27 @@
-import {Component, markup, onMounted, onPatched, onWillStart, useRef} from "@odoo/owl";
+import {
+    Component,
+    markup,
+    onMounted,
+    onPatched,
+    onWillStart,
+    signal,
+    useProps,
+} from "@odoo/owl";
 import {loadJS} from "@web/core/assets";
 import {registry} from "@web/core/registry";
+import {standardFieldProps} from "@web/views/fields/standard_field_props";
 
 export default class Mpld3ChartJsonWidget extends Component {
+    props = useProps(standardFieldProps);
+    widget = signal.ref();
+
     setup() {
-        this.widget = useRef("widget");
         const appendScript = () => {
             const chartData = this.props.record.data[this.props.name];
             if (chartData && chartData.script) {
                 const script = document.createElement("script");
                 script.text = chartData.script;
-                this.widget.el.append(script);
+                this.widget().append(script);
             }
         };
         onPatched(appendScript);
